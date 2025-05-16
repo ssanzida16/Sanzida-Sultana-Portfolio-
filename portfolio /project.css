@@ -1,0 +1,81 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('images/project.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #f2f0ff;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Navigation */
+header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #6c5ce7;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #dcd6ff;
+}
+
+/* Project Section */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  flex-direction: column;
+  text-align: center;
+}
+
+.projects h1 {
+  font-size: 2.5rem;
+  color: #6c5ce7;
+  margin-bottom: 2rem;
+}
+
+.project-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.project-button {
+  background-color: #a29bfe;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #6c5ce7;
+}
