@@ -21,13 +21,69 @@
     <section class="projects">
       <h1>My Projects</h1>
       <div class="project-buttons">
-        <a href="https://youtu.be/w3_8OLrY6Lk" target="_blank" class="project-button">Lyric Video</a>
-        <a href="https://youtu.be/l_DJh3EEb0s" target="_blank" class="project-button">Animated Music Video</a>
-        <a href="https://medp33100.github.io/project-1-ssanzida16/" target="_blank" class="project-button">Interactive Emoji Story</a>
-    <a href="https://medp33100.github.io/week-2-e-commerce-ssanzida16/" target="_blank" class="project-button">E-Commerce Mockup</a>
-    <a href="https://medp33100.github.io/week-7-slideshow-ssanzida16/" target="_blank" class="project-button">Image Slideshow</a>
+
+        <!-- Repeatable Card Block -->
+        <div class="card" onclick="openModal('modal1')">
+          <h2>Lyric Video</h2>
+          <p>A synced lyric video made with Premiere and After Effects, set to music.</p>
+        </div>
+
+        <div class="card" onclick="openModal('modal2')">
+          <h2>Animated Music Video</h2>
+          <p>An expressive animation using character rigging and music-driven visuals.</p>
+        </div>
+
+        <div class="card" onclick="openModal('modal3')">
+          <h2>Interactive Emoji Story</h2>
+          <p>A choose-your-path story using emojis and interactive JavaScript logic.</p>
+        </div>
+
+        <div class="card" onclick="openModal('modal4')">
+          <h2>E-Commerce Mockup</h2>
+          <p>A mock shopping site layout featuring products, categories, and UI flow.</p>
+        </div>
+
+        <div class="card" onclick="openModal('modal5')">
+          <h2>Image Slideshow</h2>
+          <p>A looping image slideshow with custom transitions using JavaScript.</p>
+        </div>
+
+        <div class="card" onclick="openModal('modal6')">
+          <h2>Tiny Souvenirs Archive</h2>
+          <p>A full-stack digital archive to submit, store, and view “souvenirs.”</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Modal Template -->
+  <div id="modal" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <div id="modal-text"></div>
+    </div>
+  </div>
+
+  <script>
+    const modalText = {
+      modal1: `<h2>Lyric Video</h2><p>A text-synced lyric video made with Adobe Premiere and After Effects.<br><a href="https://youtu.be/w3_8OLYgYLk" target="_blank">Watch Video</a></p>`,
+      modal2: `<h2>Animated Music Video</h2><p>An expressive animated video using character animation and keyframes.<br><a href="https://youtu.be/_DJh3Eb8eDs" target="_blank">Watch Video</a></p>`,
+      modal3: `<h2>Interactive Emoji Story</h2><p>A choose-your-own-path web story controlled with emojis. Built using HTML, CSS, JavaScript.<br><a href="https://medp33100.github.io/project-1-ssanzida16/" target="_blank">View Project</a></p>`,
+      modal4: `<h2>E-Commerce Mockup</h2><p>A sample online store interface including product cards, checkout UI, and responsive design.<br><a href="https://medp33100.github.io/week-2-e-commerce-ssanzida16/" target="_blank">View Project</a></p>`,
+      modal5: `<h2>Image Slideshow</h2><p>A looping slideshow of images with animated transitions. Built with HTML, CSS, JavaScript.<br><a href="https://medp33100.github.io/week-7-slideshow-ssanzida16/" target="_blank">View Project</a></p>`,
+      modal6: `<h2>Tiny Souvenirs Archive</h2><p>A full-stack archive that lets users submit, store, and browse tiny digital "souvenirs."<br>
+      Built using: Node.js, Express.js, MongoDB Atlas, Mongoose, Handlebars, and custom CSS/JS.<br>
+      <a href="https://coordinated-kind-bowler.glitch.me/" target="_blank">Launch Archive</a></p>`
+    };
+
+    function openModal(id) {
+      document.getElementById('modal-text').innerHTML = modalText[id];
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

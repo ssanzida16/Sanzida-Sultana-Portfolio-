@@ -10,10 +10,7 @@ body {
   background: url('images/project.png') no-repeat center center fixed;
   background-size: cover;
   background-color: #f2f0ff;
-  margin: 0;
-  padding: 0;
 }
-
 
 /* Navigation */
 header {
@@ -21,7 +18,6 @@ header {
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: flex-end;
-  background-color: transparent;
 }
 
 nav ul {
@@ -43,7 +39,7 @@ nav a:hover {
   background-color: #dcd6ff;
 }
 
-/* Project Section */
+/* Main Projects */
 main {
   display: flex;
   justify-content: center;
@@ -60,22 +56,110 @@ main {
 }
 
 .project-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  align-items: center;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 1200px;
 }
 
-.project-button {
+@media (min-width: 768px) {
+  .project-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .project-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cards */
+.card {
   background-color: #a29bfe;
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: left;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  cursor: pointer;
 }
 
-.project-button:hover {
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card:hover {
   background-color: #6c5ce7;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+}
+
+/* Fade-in Staggering */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  color: #333;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: left;
+}
+
+.modal-content h2 {
+  color: #6c5ce7;
+  margin-bottom: 0.75rem;
+}
+
+.modal-content a {
+  color: #6c5ce7;
+  text-decoration: underline;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
 }
